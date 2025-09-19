@@ -57,6 +57,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        quiz: {
+          gradient: "var(--quiz-gradient)",
+          "card-hover": "hsl(var(--quiz-card-hover))",
+          success: "hsl(var(--quiz-success))",
+        },
+      },
+      backgroundImage: {
+        "quiz-gradient": "var(--quiz-gradient)",
+      },
+      boxShadow: {
+        quiz: "var(--quiz-shadow)",
+        "quiz-lg": "var(--quiz-shadow-lg)",
+      },
+      transitionTimingFunction: {
+        smooth: "var(--transition-smooth)",
       },
       borderRadius: {
         lg: "var(--radius)",
