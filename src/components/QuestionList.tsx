@@ -31,35 +31,37 @@ export const QuestionList = ({ questions, selectedQuestion, onQuestionSelect }: 
   return (
     <div className="space-y-3">
       <h2 className="text-xl font-semibold mb-4">Questions ({questions.length})</h2>
-      {questions.map((question) => (
-        <Card
-          key={question.id}
-          className={`p-4 cursor-pointer transition-all duration-300 hover:shadow-quiz ${
-            selectedQuestion?.id === question.id
-              ? 'ring-2 ring-primary shadow-quiz-lg bg-quiz-card-hover'
-              : 'hover:bg-quiz-card-hover'
-          }`}
-          onClick={() => onQuestionSelect(question)}
-        >
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1 min-w-0">
-              <p className="font-medium text-sm text-foreground truncate mb-2">
-                {question.question}
-              </p>
-              <div className="flex items-center gap-2">
-                <Badge variant="secondary" className="text-xs">
-                  {question.topic}
-                </Badge>
-                <Badge
-                  className={`text-xs ${getDifficultyColor(question.difficultyLevel)}`}
-                >
-                  {question.difficultyLevel}
-                </Badge>
+      <div className="h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {questions.map((question) => (
+            <Card
+              key={question.id}
+              className={`p-3 cursor-pointer transition-all duration-300 hover:shadow-quiz ${
+                selectedQuestion?.id === question.id
+                  ? 'ring-2 ring-primary shadow-quiz-lg bg-quiz-card-hover'
+                  : 'hover:bg-quiz-card-hover'
+              }`}
+              onClick={() => onQuestionSelect(question)}
+            >
+              <div className="flex flex-col gap-2">
+                <p className="font-medium text-xs text-foreground line-clamp-2 mb-2">
+                  {question.question}
+                </p>
+                <div className="flex items-center gap-2">
+                  <Badge variant="secondary" className="text-xs">
+                    {question.topic}
+                  </Badge>
+                  <Badge
+                    className={`text-xs ${getDifficultyColor(question.difficultyLevel)}`}
+                  >
+                    {question.difficultyLevel}
+                  </Badge>
+                </div>
               </div>
-            </div>
-          </div>
-        </Card>
-      ))}
+            </Card>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
