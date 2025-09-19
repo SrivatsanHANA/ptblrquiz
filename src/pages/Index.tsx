@@ -117,7 +117,7 @@ const Index = () => {
 
           {/* Right Column - Question Detail */}
           <div className="space-y-8">
-            {quizState.selectedQuestion ? <QuestionDetail question={quizState.selectedQuestion} showAnswer={quizState.showAnswer} onToggleAnswer={handleToggleAnswer} /> : <Card className="p-8 text-center border-2 border-dashed border-muted-foreground/30">
+            {quizState.selectedQuestion ? <QuestionDetail question={quizState.selectedQuestion} showAnswer={quizState.showAnswer} onToggleAnswer={handleToggleAnswer} className="bg-gray-50" /> : <Card className="p-8 text-center border-2 border-dashed border-muted-foreground/30">
                 <div className="flex flex-col items-center space-y-4">
                   <div className="p-4 bg-muted/30 rounded-full">
                     <BookOpen className="h-8 w-8 text-muted-foreground" />
