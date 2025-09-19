@@ -161,27 +161,19 @@ const Index = () => {
         />
       </CollapsibleSidebar>
 
-      <div className="flex-1 p-6">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <BookOpen className="w-8 h-8 text-primary" />
-                <Target className="w-6 h-6 text-secondary" />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-foreground">
-                  Product Tank Bengaluru
-                  <span className="text-primary ml-2">Quiz Time!</span>
-                </h1>
-                <p className="text-muted-foreground mt-1">Think, Answer, Learn and have Fun!!</p>
-              </div>
-            </div>
+      <div className="flex-1 p-6 max-w-none">
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <BookOpen className="w-8 h-8 text-primary" />
+            <Target className="w-6 h-6 text-secondary" />
           </div>
+          <h1 className="text-2xl font-bold text-foreground mb-1">
+            Product Tank Bengaluru
+            <span className="text-primary ml-1">Quiz!</span>
+          </h1>
+          <p className="text-muted-foreground">Think, Answer, Learn!</p>
         </div>
 
-        {/* Question Detail Area */}
         <div className="h-[calc(100vh-200px)]">
           {quizState.selectedQuestion ? (
             <QuestionDetail
