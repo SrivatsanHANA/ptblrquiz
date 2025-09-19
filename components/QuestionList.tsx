@@ -45,7 +45,7 @@ export const QuestionList = ({ questions, selectedQuestion, onQuestionSelect }: 
     return (
       <Card className="p-8 text-center bg-card">
         <p className="text-muted-foreground">
-          No questions available. Upload an Excel file or generate questions from a topic.
+          No questions available. Upload an Excel file
         </p>
       </Card>
     )

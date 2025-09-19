@@ -118,7 +118,21 @@ export const CollapsibleSidebar = ({
 
       {/* Main Content Area */}
       <div className="flex-1 overflow-auto">
-        <div className="h-full">{/* Content will be passed as children to the main page */}</div>
+        <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 to-slate-100">
+          <div className="p-8 text-center border-b border-slate-200/50">
+            <h1 className="text-3xl font-bold text-slate-800 mb-2">Welcome to ProductTank Quiz</h1>
+            <p className="text-slate-600 text-lg">
+              Upload your Excel file to get started with interactive quiz questions
+            </p>
+          </div>
+          <div className="flex-1 flex items-center justify-center p-8">
+            <img
+              src="/images/producttank-banner.png"
+              alt="ProductTank Bengaluru - Mind the Product Mission Statement"
+              className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
       </div>
     </div>
   )
