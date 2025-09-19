@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Sparkles, Loader2 } from 'lucide-react';
+import { Search, Sparkles, Loader2, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
@@ -8,9 +8,10 @@ import { Question } from '@/types/quiz';
 
 interface TopicSearchProps {
   onQuestionsGenerated: (questions: Question[]) => void;
+  onClear: () => void;
 }
 
-export const TopicSearch = ({ onQuestionsGenerated }: TopicSearchProps) => {
+export const TopicSearch = ({ onQuestionsGenerated, onClear }: TopicSearchProps) => {
   const [topic, setTopic] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -37,22 +38,22 @@ export const TopicSearch = ({ onQuestionsGenerated }: TopicSearchProps) => {
       const questionTemplates = [
         {
           template: `How would you prioritize features for a ${topic} product using a framework like RICE or MoSCoW?`,
-          answer: `For ${topic} products, I would use frameworks like RICE (Reach, Impact, Confidence, Effort) or MoSCoW prioritization. Key factors include: 1) User impact and pain points (validated through research), 2) Business value and revenue potential, 3) Technical feasibility and development effort, 4) Strategic alignment with company OKRs, 5) Competitive advantage and market timing. I'd also consider dependencies, risk factors, and resource constraints.`,
+          answer: `RICE framework approach`,
           difficulty: 'Medium' as const
         },
         {
           template: `What key metrics and KPIs would you define and track for a ${topic} product?`,
-          answer: `For ${topic} products, I'd establish metrics across multiple layers: 1) North Star Metric aligned with user value, 2) Product metrics (feature adoption, user engagement, retention), 3) Business metrics (revenue, conversion rates, customer acquisition cost, lifetime value), 4) Operational metrics (performance, reliability, support efficiency), 5) Leading indicators to predict future performance. I'd use frameworks like HEART (Happiness, Engagement, Adoption, Retention, Task success) to ensure comprehensive coverage.`,
+          answer: `North Star Metrics`,
           difficulty: 'Hard' as const
         },
         {
           template: `How would you approach user research and validation for a ${topic} product feature?`,
-          answer: `My user research approach would include: 1) Discovery research (user interviews, surveys, observational studies) to understand pain points, 2) Usability testing and prototype validation, 3) A/B testing and experimentation for feature validation, 4) Analytics and behavioral data analysis, 5) Continuous feedback loops through in-app surveys and support data. I'd ensure research is representative of target users and use both qualitative and quantitative methods to validate assumptions.`,
+          answer: `Discovery research methods`,
           difficulty: 'Easy' as const
         },
         {
           template: `How would you handle stakeholder alignment and communication for a ${topic} product initiative?`,
-          answer: `Stakeholder alignment for ${topic} initiatives requires: 1) Clear problem definition and success criteria, 2) Regular communication through roadmap reviews and status updates, 3) Data-driven decision making with shared metrics dashboards, 4) Cross-functional collaboration with engineering, design, sales, and support, 5) Managing conflicting priorities through transparent trade-off discussions. I'd use tools like stakeholder maps, RACI matrices, and regular steering committee meetings to maintain alignment.`,
+          answer: `Clear communication frameworks`,
           difficulty: 'Medium' as const
         }
       ];
@@ -118,6 +119,13 @@ export const TopicSearch = ({ onQuestionsGenerated }: TopicSearchProps) => {
             ) : (
               'Generate'
             )}
+          </Button>
+          <Button
+            onClick={onClear}
+            variant="outline"
+            className="border-white/20 text-white hover:bg-white/10"
+          >
+            <Trash2 className="h-4 w-4" />
           </Button>
         </div>
       </div>

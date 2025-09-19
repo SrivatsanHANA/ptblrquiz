@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Upload, FileSpreadsheet } from 'lucide-react';
+import { Upload, FileSpreadsheet, Trash2 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
@@ -9,9 +9,10 @@ import { Question, ExcelRow } from '@/types/quiz';
 
 interface FileUploadProps {
   onQuestionsLoaded: (questions: Question[]) => void;
+  onClear: () => void;
 }
 
-export const FileUpload = ({ onQuestionsLoaded }: FileUploadProps) => {
+export const FileUpload = ({ onQuestionsLoaded, onClear }: FileUploadProps) => {
   const { toast } = useToast();
 
   const parseExcelFile = useCallback((file: File) => {
@@ -99,9 +100,23 @@ export const FileUpload = ({ onQuestionsLoaded }: FileUploadProps) => {
             <p className="text-sm text-muted-foreground mb-4">
               Drag and drop or click to select an Excel file (.xlsx, .xls)
             </p>
-            <Button variant="outline" size="sm">
-              Browse Files
-            </Button>
+            <div className="flex gap-2 justify-center">
+              <Button variant="outline" size="sm">
+                Browse Files
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClear();
+                }}
+                className="text-destructive border-destructive/20 hover:bg-destructive/10"
+              >
+                <Trash2 className="h-4 w-4 mr-2" />
+                Clear Uploaded
+              </Button>
+            </div>
           </div>
         </div>
       </div>
