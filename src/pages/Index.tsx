@@ -65,12 +65,11 @@ const Index = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Product Management
-              <span className="block text-white/90">Quiz Platform</span>
+              Product Tank Bengaluru
+              <span className="block text-white/90">Quiz Time!</span>
             </h1>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Upload Excel files or generate questions from topics to create engaging 
-              product management quizzes. Perfect for interviews, training, and skill assessment.
+              Think, Answer, Learn and have Fun !!
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
